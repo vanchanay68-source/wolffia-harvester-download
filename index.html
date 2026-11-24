@@ -1,108 +1,272 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071521">
-  <meta name="description" content="ดาวน์โหลดแอป Wolffia Harvester Control สำหรับควบคุมเครื่องเก็บไข่ผำผ่าน Bluetooth BLE">
-  <title>Wolffia Harvester Control | ดาวน์โหลดแอป</title>
-  <style>
-    :root{color-scheme:dark;--bg:#071521;--panel:#102536;--line:#244459;--text:#eff8ff;--muted:#a8bdcc;--blue:#20a9e8;--cyan:#62e0ef}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#123b52 0,transparent 42%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
-    .wrap{width:min(960px,calc(100% - 32px));margin:auto}.top{padding:24px 0;display:flex;align-items:center;gap:12px}
-    .logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#087eb8,#22c8cf);display:grid;place-items:center;font-size:25px}
-    .brand{font-weight:800;letter-spacing:.04em}.sub{font-size:12px;color:var(--muted);letter-spacing:.12em}
-    .hero{padding:52px 0 34px;display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
-    h1{font-size:clamp(34px,6vw,58px);line-height:1.08;margin:0 0 18px}.grad{background:linear-gradient(90deg,#69e5ef,#42aef0);-webkit-background-clip:text;background-clip:text;color:transparent}
-    p{color:var(--muted);margin:0 0 20px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:13px;background:linear-gradient(110deg,#087fc1,#16b8cf);color:white;text-decoration:none;font-weight:750;border:0;min-height:52px}
-    .btn.disabled{opacity:.48;cursor:not-allowed;filter:grayscale(.4)}.hint{font-size:12px;color:var(--muted);margin-top:10px}
-    .device{background:linear-gradient(160deg,#15364a,#0b1b2a);border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:0 24px 70px #0007}
-    .screen{background:#071521;border:1px solid #25485d;border-radius:20px;padding:20px}.screen h3{margin:0 0 5px}.status{color:#69e5a7;font-size:12px}.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:22px 0}
-    .key{background:#17394f;border-radius:12px;padding:12px;text-align:center;font-weight:700}.stop{background:#8e2c38}.empty{visibility:hidden}
-    .bar{height:7px;border-radius:20px;background:#24465b;margin:9px 0 16px;overflow:hidden}.bar span{display:block;height:100%;width:68%;background:linear-gradient(90deg,#17a5d9,#69e5ef);border-radius:20px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 46px}.card{background:#0e2332;border:1px solid var(--line);border-radius:17px;padding:19px}.card b{display:block;margin:8px 0 4px}.card p{font-size:14px;margin:0}
-    section{margin:38px 0}.section-title{font-size:24px;margin:0 0 14px}.steps{padding-left:22px;color:var(--muted)}.steps li{padding:5px 0}
-    footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted);font-size:13px}
-    @media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:28px}.device{max-width:440px;margin:auto}.grid{grid-template-columns:1fr}.top{padding:17px 0}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071521">
+<meta name="description" content="ดาวน์โหลดแอปควบคุมเครื่องเก็บไข่ผำผ่าน Bluetooth BLE">
+<title>ดาวน์โหลดแอปควบคุมเครื่องเก็บไข่ผำ</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Tahoma, sans-serif;
+  background: #071521;
+  color: white;
+  line-height: 1.7;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+header {
+  padding: 25px 0;
+  border-bottom: 1px solid #244459;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: #55d9ed;
+}
+
+.hero {
+  text-align: center;
+  padding: 65px 15px 45px;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 6vw, 48px);
+  margin-bottom: 15px;
+  background: linear-gradient(90deg,#55e5ed,#2499ed);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: #b6cbd9;
+  font-size: 16px;
+  max-width: 650px;
+  margin: 0 auto 25px;
+}
+
+.app-icon {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 25px;
+  border-radius: 28px;
+  background: linear-gradient(135deg,#087fc1,#20c5ce);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  box-shadow: 0 0 35px #16b8cf55;
+}
+
+.download {
+  display: inline-block;
+  background: linear-gradient(110deg,#087fc1,#16b8cf);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: .2s;
+}
+
+.download:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px #16b8cf55;
+}
+
+.version {
+  color: #9bb4c5;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+  margin: 35px auto;
+}
+
+.card {
+  background: #102536;
+  border: 1px solid #244459;
+  border-radius: 18px;
+  padding: 22px;
+  text-align: center;
+}
+
+.card .icon {
+  font-size: 32px;
+}
+
+.card h3 {
+  margin: 10px 0;
+  color: #62e0ef;
+}
+
+.card p {
+  color: #b6cbd9;
+  font-size: 14px;
+}
+
+section {
+  margin: 45px 0;
+}
+
+section h2 {
+  color: #62e0ef;
+  margin-bottom: 15px;
+}
+
+.steps {
+  background: #102536;
+  border: 1px solid #244459;
+  border-radius: 18px;
+  padding: 22px 25px 22px 45px;
+  color: #c2d2dd;
+}
+
+.steps li {
+  margin: 8px 0;
+}
+
+.notice {
+  color: #ffd479;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+footer {
+  border-top: 1px solid #244459;
+  text-align: center;
+  padding: 25px;
+  color: #91a9ba;
+  font-size: 13px;
+  margin-top: 50px;
+}
+
+@media(max-width:650px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .download {
+    width: 100%;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header class="wrap top">
-    <div class="logo" aria-hidden="true">🌿</div>
-    <div><div class="brand">WOLFFIA HARVESTER</div><div class="sub">REMOTE CONTROL APPLICATION</div></div>
-  </header>
 
-  <main class="wrap">
-    <div class="hero">
-      <div>
-        <p style="color:#62e0ef;font-weight:700;letter-spacing:.12em;font-size:13px">ANDROID APPLICATION</p>
-        <h1>ควบคุมแพเก็บไข่ผำ<br><span class="grad">ได้จากโทรศัพท์</span></h1>
-        <p>แอปควบคุมเครื่องเก็บไข่ผำผ่าน Bluetooth Low Energy (BLE) เชื่อมต่อกับบอร์ด ESP32 เพื่อสั่งงานมอเตอร์ใบพัดและสายพาน</p>
-        <div class="actions">
-          <a id="downloadBtn" class="btn disabled" href="#" aria-disabled="true">⬇ ดาวน์โหลดแอป Android</a>
-        </div>
-        <div id="downloadHint" class="hint">ไฟล์ติดตั้งยังไม่ถูกเพิ่ม กรุณาเผยแพร่ APK ใน GitHub Releases แล้วใส่ลิงก์ในไฟล์ index.html</div>
-      </div>
-      <div class="device" aria-label="ตัวอย่างหน้าจอควบคุม">
-        <div class="screen">
-          <h3>MOTOR CONTROL</h3><div class="status">● BLE CONTROL INTERFACE</div>
-          <div class="pad">
-            <div class="key empty"> </div><div class="key">▲<br>เดินหน้า</div><div class="key empty"> </div>
-            <div class="key">◀<br>ซ้าย</div><div class="key stop">■<br>หยุด</div><div class="key">▶<br>ขวา</div>
-            <div class="key empty"> </div><div class="key">▼<br>ถอยหลัง</div><div class="key empty"> </div>
-          </div>
-          <div style="font-size:13px;font-weight:700">ความเร็วใบพัด</div><div class="bar"><span></span></div>
-          <div style="font-size:13px;font-weight:700">ความเร็วสายพาน</div><div class="bar"><span style="width:42%"></span></div>
-          <div class="key" style="background:#087eb8">เปิด / ปิดสายพาน</div>
-        </div>
-      </div>
+<header>
+  <div class="container">
+    <div class="logo">🌿 WOLFFIA HARVESTER</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="hero">
+
+    <div class="app-icon">🌱</div>
+
+    <h1>แอปควบคุมเครื่องเก็บไข่ผำ</h1>
+
+    <p>
+      ควบคุมเครื่องเก็บไข่ผำผ่านโทรศัพท์ Android
+      เชื่อมต่อกับ ESP32 ด้วย Bluetooth BLE
+      พร้อมควบคุมทิศทางและความเร็วของมอเตอร์
+    </p>
+
+    <a
+      class="download"
+      href="https://github.com/vanchanay68-source/-/releases/download/v1.0.0/ESP32_Motor_Control.apk"
+      download>
+      ⬇ ดาวน์โหลดแอป Android
+    </a>
+
+    <div class="version">
+      เวอร์ชัน 1.0.0 | Android APK
     </div>
 
-    <div class="grid">
-      <div class="card"><div style="font-size:25px">🔵</div><b>Bluetooth BLE</b><p>เชื่อมต่อกับ ESP32 เพื่อควบคุมอุปกรณ์</p></div>
-      <div class="card"><div style="font-size:25px">🎮</div><b>ควบคุมทิศทาง</b><p>เดินหน้า ถอยหลัง เลี้ยวซ้าย เลี้ยวขวา และหยุด</p></div>
-      <div class="card"><div style="font-size:25px">🎚️</div><b>ปรับความเร็ว</b><p>แยกการปรับความเร็วใบพัดและสายพาน</p></div>
+  </div>
+
+  <div class="features">
+
+    <div class="card">
+      <div class="icon">🔵</div>
+      <h3>Bluetooth BLE</h3>
+      <p>เชื่อมต่อกับบอร์ด ESP32 แบบไร้สาย</p>
     </div>
 
-    <section>
-      <h2 class="section-title">วิธีติดตั้ง</h2>
-      <ol class="steps">
-        <li>ดาวน์โหลดไฟล์ APK จากปุ่มด้านบน เมื่อมีการเผยแพร่ไฟล์แล้ว</li>
-        <li>เปิดไฟล์ APK บนโทรศัพท์ Android</li>
-        <li>หากระบบถาม ให้ยืนยันอนุญาตติดตั้งแอปจากแหล่งนี้</li>
-        <li>เปิดแอป เปิด Bluetooth และเชื่อมต่อกับอุปกรณ์ ESP32_MOTOR</li>
-      </ol>
-      <p class="hint">ติดตั้งเฉพาะ APK ที่ได้รับจากผู้พัฒนาและเชื่อถือได้เท่านั้น การอนุญาตติดตั้งจากแหล่งภายนอกมีความเสี่ยง ควรตรวจสอบไฟล์ก่อนติดตั้ง</p>
-    </section>
+    <div class="card">
+      <div class="icon">🎮</div>
+      <h3>ควบคุมทิศทาง</h3>
+      <p>เดินหน้า ถอยหลัง เลี้ยวซ้าย เลี้ยวขวา และหยุด</p>
+    </div>
 
-    <section>
-      <h2 class="section-title">ข้อมูลแอป</h2>
-      <div class="card">
-        <p><b>ชื่อแอป:</b> Wolffia Harvester Control</p>
-        <p><b>แพลตฟอร์ม:</b> Android</p>
-        <p><b>เวอร์ชัน:</b> 1.0.0 (ตัวอย่าง — ปรับตามไฟล์จริงก่อนเผยแพร่)</p>
-        <p><b>การเชื่อมต่อ:</b> Bluetooth Low Energy (BLE)</p>
-      </div>
-    </section>
-  </main>
+    <div class="card">
+      <div class="icon">🎚️</div>
+      <h3>ปรับความเร็ว</h3>
+      <p>ปรับความเร็วใบพัดและสายพานแยกจากกัน</p>
+    </div>
 
-  <footer><div class="wrap">Wolffia Harvester Control · เว็บไซต์ดาวน์โหลดแอป Android</div></footer>
+  </div>
 
-  <script>
-    // ใส่ URL ไฟล์ APK จาก GitHub Releases ที่นี่ เช่น
-    // const APK_URL = "https://github.com/USERNAME/REPOSITORY/releases/download/v1.0.0/app-release.apk";
-    const APK_URL = "";
-    const btn = document.getElementById("downloadBtn");
-    const hint = document.getElementById("downloadHint");
-    if (APK_URL && /^https:\/\/.+\.apk(?:$|\?)/i.test(APK_URL)) {
-      btn.href = APK_URL;
-      btn.classList.remove("disabled");
-      btn.removeAttribute("aria-disabled");
-      hint.textContent = "ดาวน์โหลดไฟล์ติดตั้ง APK สำหรับ Android";
-    } else {
-      btn.addEventListener("click", e => e.preventDefault());
-    }
-  </script>
+  <section>
+    <h2>วิธีติดตั้งแอป</h2>
+
+    <ol class="steps">
+      <li>กดปุ่มดาวน์โหลดแอป Android</li>
+      <li>รอให้ดาวน์โหลดไฟล์ APK เสร็จ</li>
+      <li>เปิดไฟล์ APK ที่ดาวน์โหลดไว้</li>
+      <li>อนุญาตติดตั้งแอปจากแหล่งนี้ หากโทรศัพท์ร้องขอ</li>
+      <li>เปิด Bluetooth และเชื่อมต่อกับ ESP32_MOTOR</li>
+    </ol>
+
+    <p class="notice">
+      ควรติดตั้งไฟล์จากแหล่งที่เชื่อถือได้เท่านั้น
+    </p>
+  </section>
+
+  <section>
+    <h2>ข้อมูลแอปพลิเคชัน</h2>
+
+    <div class="card" style="text-align:left">
+      <p>ชื่อแอป: Wolffia Harvester Control</p>
+      <p>เวอร์ชัน: 1.0.0</p>
+      <p>ระบบปฏิบัติการ: Android</p>
+      <p>การเชื่อมต่อ: Bluetooth Low Energy</p>
+      <p>อุปกรณ์ควบคุม: ESP32</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Wolffia Harvester Control<br>
+  เว็บไซต์ดาวน์โหลดแอปควบคุมเครื่องเก็บไข่ผำ
+</footer>
+
 </body>
 </html>
